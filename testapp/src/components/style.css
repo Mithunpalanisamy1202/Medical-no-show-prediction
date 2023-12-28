@@ -1,0 +1,137 @@
+
+.home {
+  height: 30vh;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.fblogo1 {
+  display: flex;
+  justify-content: start;
+  width: 250px;
+  height: 200px;
+}
+
+.fb_content1 {
+  color: #cccfd1;
+  text-align: left !important;
+  font-size: 48px;
+}
+
+.first1 {
+  background-image: url("./gettyimages-1391152206-612x612.jpg");
+  width: 50% !important;
+  height: 60vh !important;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.center {
+  width: 70% !important;
+  height: 60vh !important;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+}
+.form_d1 {
+  background-color: white; 
+}
+
+.form-controll1 {
+  font-size: medium;
+  font-weight: bold;
+  width: 100%;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+.btnl1{
+    font-weight: bold;
+  width: 80%;
+  background-color: rgb(226, 61, 83);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+
+}
+
+.btn {
+  font-weight: bold;
+  width: 100%;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.ca1 {
+  background-color: #313264;
+  width: 40%;
+  text-decoration: none;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+}
+
+
+.fa1 {
+    background-color: white;
+    height: 60vh !important;
+    width: 25vw;
+   
+}
+
+.a1 {
+  display: flex;
+}
+
+.fa1 {
+
+  justify-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.errorLabel {
+  color: red;
+  font-size: 15px;
+}
+
+
+.close-icon {
+    text-align: center;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  top: 0px;
+  right:3rem;
+  cursor: pointer;
+  font-size: 60px;
+}
+
+@media (max-width: 768px) {
+    .center {
+      width: 90% !important;
+    }
+  
+    .form_d1 {
+      width: 90%;
+    }
+  
+    .fa1 {
+      padding-left: 5%;
+    }
+  }

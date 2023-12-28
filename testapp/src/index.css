@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* @font-face{
+  font-family: 'Myfont';
+  src:url('./OnePlusSans-Regular.woff2') format('woff2');
+}
+
+text{
+  font-family: 'Myfont';
+} */
+
+
+/* html {
+  min-height: 100vh;
+  min-width: 100vw;
+} */
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; 
+  font-family:'myFont' ;
+  height:100vh;
+  /* overflow-y: hidden; */
+}
+
+html,
+body,
+#root,
+.content {
+  height: 100vh;
+}
+
+@font-face {
+  font-family: "myFont";
+  src: url('./fonts/Mukta/Mukta-Bold.ttf') format('truetype');
+}
+
+/* #root{
+  overflow:hidden;
+  
+} */
