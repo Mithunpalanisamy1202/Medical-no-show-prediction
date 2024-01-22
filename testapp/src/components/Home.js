@@ -10,8 +10,7 @@ function Home() {
   const handletoForm = (e) => {
     e.preventDefault();
     if(showTrigger){
-    // setShowLogin(false);
-    // setShowLogout(true);
+  
     navigate("/form");
     }
     else{
@@ -27,8 +26,7 @@ function Home() {
   const[showTrigger,setShowTrigger]=useState(false);
     const handleLoginClick = () => {
       setLoginOpen(true);
-      // setShowLogin(false);
-      // setShowLogout(true);
+     
     };
 
     const handleLogout=(e)=>{

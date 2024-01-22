@@ -61,14 +61,11 @@ a {
 
 
 .signdob{
-    /* justify-content: center; */
     align-items: center;
     margin-left: 1rem;
 }
 
-/* .signother{
-    width: 90%;
-} */
+
 
 
 .list{
@@ -94,9 +91,7 @@ color: #3d3939;
     background-color: white;
 }
 
-/* .sother{
-    width: 50%;
-} */
+
 
 @media (max-width: 768px) {
     .form {

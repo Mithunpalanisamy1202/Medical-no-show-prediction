@@ -49,7 +49,6 @@ function Login({ isOpen, onClose, setShowTrigger,setShowLogin,setShowLogout }) {
           onClose();
         } else {
           setPasswordError("Invalid Username or Password");
-          // setPasswordError("Please create an account to continue..");
         }
       })
       .catch((error) => {

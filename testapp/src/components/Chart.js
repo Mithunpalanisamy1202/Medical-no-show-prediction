@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReactApexChart from "react-apexcharts";
-import ShapValueChart from "./ShapValueChart";
 import "./Chart.css";
 function Chart() {
   const [shapData, setShapData] = useState({});

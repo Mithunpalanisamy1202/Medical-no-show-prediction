@@ -12,6 +12,7 @@ import numpy as np
 import shap
 import joblib
 import lime
+import os
 from lime.lime_tabular import LimeTabularExplainer
 app = Flask(__name__)
 CORS(app)
@@ -20,11 +21,11 @@ new = None
 ex=None
 show=None
 status=None
-# df=pd.read_excel(r'C:\Users\mithu\OneDrive\Desktop\react\flask-project\users.xlsx')
 
 def check_credentials(username,password):
-    # df=pd.read_excel('user_details.xlsx')
-    df=pd.read_excel(r'C:\Users\mithu\OneDrive\Desktop\react\flask-project\users.xlsx')
+    script_dir = os.path.dirname(__file__)
+    file_path = os.path.join(script_dir, 'users.xlsx')
+    df=pd.read_excel(file_path)
     df_data = dict(df.values)
     print('login',df)
     print(df_data.items())
@@ -74,8 +75,9 @@ def signup():
         
         print(username)
         print(password)
-
-        df=pd.read_excel(r'C:\Users\mithu\OneDrive\Desktop\react\flask-project\users.xlsx')
+        script_dir = os.path.dirname(__file__)
+        file_path = os.path.join(script_dir, 'users.xlsx')
+        df=pd.read_excel(file_path)
         print('beforesignup',df)
         if check_username(df,username):
             return jsonify({"message":"Username already exists"})
@@ -83,8 +85,7 @@ def signup():
         new_user ={'Username':username,'Password':password}
         print(new_user)
         df_temp = pd.DataFrame([new_user])
-        # print(df_temp)
-        writer = ExcelWriter(r'C:\Users\mithu\OneDrive\Desktop\react\flask-project\users.xlsx',engine='openpyxl',mode='a',if_sheet_exists='overlay')
+        writer = ExcelWriter(file_path,engine='openpyxl',mode='a',if_sheet_exists='overlay')
         df_temp.to_excel(writer, index=False, startrow=len(df)+1)  
 
         print('aftersignup',df_temp)
@@ -106,7 +107,7 @@ def crt(Appointment_Day):
 def preprocess_input(input_data):
     gender_encoder = LabelEncoder()
     input_data['Gender'] = gender_encoder.fit_transform(input_data['Gender'])
-    # input_data['Gender']=input_data['Gender'].astype(int)
+
     day_mapping = {
         'Monday': 3,
         'Tuesday': 4,
@@ -139,8 +140,9 @@ def predictdata(new):
     input_data = pd.DataFrame(new, columns=input_columns)
     print(input_data)
     preprocessed_data = preprocess_input(input_data)
-    # loaded_pickle_model = pickle.load(open(r'C:\\Users\\mithu\\OneDrive\\Desktop\\rf_model.pkl','rb'))
-    loaded_pickle_model = pickle.load(open(r'C:\\Users\\mithu\\OneDrive\\Desktop\\react\\flask-project\\rf_model.pkl','rb'))
+    script_dir = os.path.dirname(__file__)
+    file_path = os.path.join(script_dir,'rf_model.pkl')
+    loaded_pickle_model = pickle.load(open(file_path,'rb'))
     pickle_y_preds = loaded_pickle_model.predict(preprocessed_data)
     pickle_y_preds
 
@@ -160,16 +162,7 @@ def predictdata(new):
         print('show')
         return result
     else:
-#         available_slots = [
-#         "9:00 AM to 10:00 AM",
-#         "10:00 AM to 11:00 AM",
-#         "2:00 PM to 3:00 PM",
-#         "3:00 PM to 4:00 PM",
-#         "4:00 PM to 5:00 PM",
-#         "5:00 PM to 6:00 PM",
-#         "7:00 PM to 8:00 PM"
-# ]
-#         selected_slots = random.sample(available_slots, 3)
+
         result = 1
         show='will not show'
         status='absence'
@@ -225,7 +218,7 @@ def preprocess_input1(input_data):
     }
     input_data[0] = gender_mapping.get(input_data[0], -1)
 
-    input_data[1] = int(input_data[1])  # Convert age to integer
+    input_data[1] = int(input_data[1])  
 
     day_mapping = {
         'Monday': 3,
@@ -290,7 +283,9 @@ def chart():
     global ex
     global show
     global status
-    model = joblib.load('C:\\Users\\mithu\\OneDrive\\Desktop\\rf_model.pkl')
+    script_dir = os.path.dirname(__file__)
+    file_path = os.path.join(script_dir,'rf_model.pkl')
+    model = joblib.load(file_path)
    
     new_data=preprocess_input1(new[0])
     sample_data = np.array(new_data)
@@ -319,17 +314,7 @@ def chart():
                                 was <b>highly influencing</b> the patient's <b>{status}</b> and our model has predicted that the patient <b style="color:red;">{show}</b> for an appointment'''
     }
     print(shap_data)
-    # lime_explainer = lime.lime_tabular.LimeTabularExplainer(sample_data, shap_categories,mode="classification")
-    # explanation = lime_explainer.explain_instance(sample_data, model.predict_probha)
-    # lime_data = {
-    #     "as_list": explanation.as_list(),
-    #     "predicted_value": explanation.predicted_value,
-    # }
-    # print(lime_data)
-    # result = {
-    #     "shap_data": shap_data,
-    #     "lime_data": lime_data,
-    # }
+    
     
     return jsonify(shap_data)
 

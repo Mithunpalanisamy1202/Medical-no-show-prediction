@@ -1,97 +1,4 @@
-/* .ch1{
-    background-color: #313264;
-    color:beige;
-    justify-content: space-between;
-    
-}
 
-
-.a01{
-    color:beige;
-    font-size: 15px;
-}
-
-.nav03{
-    display:flex;
-    justify-content: space-between;
-}
-
-
-
-.l01{
-    font-size: 50px;
-    font-weight: bolder;
-    color:rgb(42, 43, 43);
-    font-family:'myFont';
-}
-
-.margin{
-    justify-content: space-between;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-.nav-link{
-    color:#4b4c4d;;
-    font-size: 20px;
-    font-weight: bold;
-
-}
-
-.gap-5{
-    gap: rem!important;
-}
-
-.nav{
-    --bs-nav-link-hover-color:rgb(226, 61, 83);
-}
-
-.back{
-    background-image: url('./gettyimages-1391152206-612x612.jpg');
-    height:65vh;
-    width:100%;
-}
-
-.justify{
-    justify-content: space-between;
-   
-}
-
-.gap{
-    gap:15px;
-}
-
-.btn2{
-    background-color: rgb(226, 61, 83);
-    border-radius: 25px;
-    --bs-btn-hover-bg: #313264;
-}
-
-.card{
-    height: 350px;
-    border-radius: 20px;
-}
-.btn1{
-    width:25%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(226, 61, 83) ;
-    font-weight: bold;
-    padding: 10px;
-    border: none;
-    border-radius:25px;
-    cursor: pointer;
-    --bs-btn-hover-bg: #313264;
-}
-
-.home_h1{
-    font-size: 60px;
-    font-weight: bold;
-} */
-
-/* Base styles */
 .ch1 {
     background-color: #313264;
     color: beige;
@@ -153,7 +60,7 @@
   }
   .back {
     background-image:url('./wallpaperflare.com_wallpaper.jpg');
-    background-size: cover; /* Make the background image cover the entire element */
+    background-size: cover; 
     background-repeat: no-repeat;
     background-position: center center;
     height: 65ch;
@@ -199,7 +106,6 @@
     font-weight: bold;
   }
   
-  /* Responsive styles */
   @media (max-width: 768px) {
     .nav03 {
       flex-direction: column;
